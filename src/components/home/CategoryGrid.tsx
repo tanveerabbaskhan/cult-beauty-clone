@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import categoryBrand from "@/assets/category-brand.jpg";
 import categoryTrending from "@/assets/category-trending.jpg";
 import categoryFragrance from "@/assets/category-fragrance.jpg";
@@ -10,25 +11,25 @@ const categories = [
     title: "Brand of the Month",
     subtitle: "OUAI",
     image: categoryBrand,
-    href: "#",
+    href: "/category/body-oil-shimmers",
   },
   {
     title: "New & Trending",
     subtitle: "Discover Now",
     image: categoryTrending,
-    href: "#",
+    href: "/category/body-oil-shimmers",
   },
   {
     title: "Fragrance",
     subtitle: "Shop Scents",
     image: categoryFragrance,
-    href: "#",
+    href: "/category/body-oil-shimmers",
   },
   {
     title: "Skin Care",
     subtitle: "Transform Your Routine",
     image: categorySkincare,
-    href: "#",
+    href: "/product/1",
   },
   {
     title: "Body & Wellbeing",
@@ -40,7 +41,7 @@ const categories = [
     title: "Hair Care",
     subtitle: "Healthy Hair Goals",
     image: categoryHaircare,
-    href: "#",
+    href: "/product/1",
   },
 ];
 
@@ -50,9 +51,9 @@ const CategoryGrid = () => {
       <div className="container">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {categories.map((category, index) => (
-            <a
+            <Link
               key={index}
-              href={category.href}
+              to={category.href}
               className="group relative overflow-hidden aspect-[4/3] md:aspect-[3/4]"
             >
               <img
@@ -67,7 +68,7 @@ const CategoryGrid = () => {
                 </h3>
                 <p className="text-xs opacity-80">{category.subtitle}</p>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>
