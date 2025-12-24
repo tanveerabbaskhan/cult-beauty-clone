@@ -1,12 +1,49 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import AnnouncementBar from "@/components/layout/AnnouncementBar";
+import SaleBanner from "@/components/layout/SaleBanner";
+import Header from "@/components/layout/Header";
+import HeroCarousel from "@/components/home/HeroCarousel";
+import CategoryGrid from "@/components/home/CategoryGrid";
+import ProductCarousel from "@/components/home/ProductCarousel";
+import BrandsBanner from "@/components/home/BrandsBanner";
+import FeaturedCollections from "@/components/home/FeaturedCollections";
+import NewsletterSignup from "@/components/home/NewsletterSignup";
+import Footer from "@/components/layout/Footer";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      {/* Top Announcement Bar */}
+      <AnnouncementBar />
+      
+      {/* Sale Banner */}
+      <SaleBanner />
+      
+      {/* Header with Navigation */}
+      <Header />
+      
+      {/* Main Content */}
+      <main>
+        {/* Hero Carousel */}
+        <HeroCarousel />
+        
+        {/* Category Quick Links */}
+        <CategoryGrid />
+        
+        {/* Product Carousel */}
+        <ProductCarousel />
+        
+        {/* Featured Collections */}
+        <FeaturedCollections />
+        
+        {/* Brand Logos */}
+        <BrandsBanner />
+        
+        {/* Newsletter Signup */}
+        <NewsletterSignup />
+      </main>
+      
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
