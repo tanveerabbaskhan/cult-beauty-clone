@@ -1,18 +1,19 @@
 import { Search, User, ShoppingBag, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const navCategories = [
-  "SALE",
-  "Christmas",
-  "Brands",
-  "New & Trending",
-  "Skin Care",
-  "Make Up",
-  "Hair",
-  "Fragrance",
-  "Body & Wellbeing",
-  "SPF & Tan",
-  "Minis",
+  { name: "SALE", href: "#" },
+  { name: "Christmas", href: "#" },
+  { name: "Brands", href: "#" },
+  { name: "New & Trending", href: "#" },
+  { name: "Skin Care", href: "#" },
+  { name: "Make Up", href: "#" },
+  { name: "Hair", href: "#" },
+  { name: "Fragrance", href: "#" },
+  { name: "Body & Wellbeing", href: "/category/body-oil-shimmers" },
+  { name: "SPF & Tan", href: "#" },
+  { name: "Minis", href: "#" },
 ];
 
 const Header = () => {
@@ -44,11 +45,11 @@ const Header = () => {
           </div>
 
           {/* Logo */}
-          <a href="/" className="flex-shrink-0">
+          <Link to="/" className="flex-shrink-0">
             <h1 className="font-playfair text-2xl md:text-3xl font-bold tracking-tight">
               CULT BEAUTY
             </h1>
-          </a>
+          </Link>
 
           {/* Actions */}
           <div className="flex-1 flex items-center justify-end gap-4">
@@ -88,15 +89,26 @@ const Header = () => {
         <nav className="hidden md:block border-t border-border">
           <ul className="flex items-center justify-center gap-6 lg:gap-8 py-3">
             {navCategories.map((category) => (
-              <li key={category}>
-                <a
-                  href="#"
-                  className={`nav-link ${
-                    category === "SALE" ? "text-primary font-semibold" : "text-foreground"
-                  }`}
-                >
-                  {category}
-                </a>
+              <li key={category.name}>
+                {category.href.startsWith("/") ? (
+                  <Link
+                    to={category.href}
+                    className={`nav-link ${
+                      category.name === "SALE" ? "text-primary font-semibold" : "text-foreground"
+                    }`}
+                  >
+                    {category.name}
+                  </Link>
+                ) : (
+                  <a
+                    href={category.href}
+                    className={`nav-link ${
+                      category.name === "SALE" ? "text-primary font-semibold" : "text-foreground"
+                    }`}
+                  >
+                    {category.name}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
@@ -107,15 +119,27 @@ const Header = () => {
           <nav className="md:hidden border-t border-border animate-slide-up">
             <ul className="py-4 space-y-4">
               {navCategories.map((category) => (
-                <li key={category}>
-                  <a
-                    href="#"
-                    className={`block py-2 text-sm font-medium ${
-                      category === "SALE" ? "text-primary" : "text-foreground"
-                    }`}
-                  >
-                    {category}
-                  </a>
+                <li key={category.name}>
+                  {category.href.startsWith("/") ? (
+                    <Link
+                      to={category.href}
+                      className={`block py-2 text-sm font-medium ${
+                        category.name === "SALE" ? "text-primary" : "text-foreground"
+                      }`}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {category.name}
+                    </Link>
+                  ) : (
+                    <a
+                      href={category.href}
+                      className={`block py-2 text-sm font-medium ${
+                        category.name === "SALE" ? "text-primary" : "text-foreground"
+                      }`}
+                    >
+                      {category.name}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
