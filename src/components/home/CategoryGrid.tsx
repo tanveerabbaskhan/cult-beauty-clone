@@ -10,31 +10,37 @@ const categories = [
     title: "Brand of the Month",
     subtitle: "OUAI",
     image: categoryBrand,
+    href: "#",
   },
   {
     title: "New & Trending",
     subtitle: "Discover Now",
     image: categoryTrending,
+    href: "#",
   },
   {
     title: "Fragrance",
     subtitle: "Shop Scents",
     image: categoryFragrance,
+    href: "#",
   },
   {
     title: "Skin Care",
     subtitle: "Transform Your Routine",
     image: categorySkincare,
+    href: "#",
   },
   {
-    title: "Make Up",
-    subtitle: "Create Your Look",
+    title: "Body & Wellbeing",
+    subtitle: "Body Oil & Shimmers",
     image: categoryMakeup,
+    href: "/category/body-oil-shimmers",
   },
   {
     title: "Hair Care",
     subtitle: "Healthy Hair Goals",
     image: categoryHaircare,
+    href: "#",
   },
 ];
 
@@ -46,7 +52,7 @@ const CategoryGrid = () => {
           {categories.map((category, index) => (
             <a
               key={index}
-              href="#"
+              href={category.href}
               className="group relative overflow-hidden aspect-[4/3] md:aspect-[3/4]"
             >
               <img
